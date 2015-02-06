@@ -121,9 +121,11 @@ public class Cases extends BaseQuery {
 			xmlString.append("</start>");
 		}
 
-		xmlString.append("<ownerSSOName>");
-		xmlString.append(connectionManager.getConfig().getUsername());
-		xmlString.append("</ownerSSOName>");
+        if (connectionManager.getConfig().getUsername() != null) {
+            xmlString.append("<ownerSSOName>");
+            xmlString.append(connectionManager.getConfig().getUsername());
+            xmlString.append("</ownerSSOName>");
+        }
 
 		xmlString.append("</caseFilter>");
 
