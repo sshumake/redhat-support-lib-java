@@ -40,6 +40,7 @@ public class ConnectionManager {
     public ConnectionManager(ConfigHelper config, ResteasyClientBuilder clientBuilder) {
         this.config = config;
         this.clientBuilder = clientBuilder;
+		this.clientBuilder.httpEngine(new CustomHttpEngine(config));
     }
 
     public ResteasyClient getConnection() throws MalformedURLException {
